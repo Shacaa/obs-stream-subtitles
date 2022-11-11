@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import axios from 'axios';
 import OBSWebSocket from 'obs-websocket-js';
 import {logDebug, logError, logInfo} from './utils/logger';
@@ -30,6 +31,8 @@ const sendOBSCaption = async (caption: string) => {
 
 const app = express();
 const port = 3000;
+
+app.use(cors());
 
 app.get('/translate', async (req, res) => {
 	const {text, source, target} = req.query;

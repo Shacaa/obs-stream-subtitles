@@ -159,13 +159,11 @@
             };
             recognition.onsoundend = function () {
                 // document.getElementById('status').innerHTML = "Stopping";
-                console.log('onsoundend: ', recog_text);
                 recognition.stop()
                 vr_function();
             };
             recognition.onspeechend = function () {
                 // document.getElementById('status').innerHTML = "Stopping";
-                console.log('onspeechend: ', recog_text);
                 recognition.stop()
                 vr_function();
             };
@@ -194,40 +192,38 @@
 
             // When the recognition result is returned ------------------
             recognition.onresult = function (event) {
-                console.log('result: ', event.results);
                 var results = event.results;
                 for (var i = event.resultIndex; i < results.length; i++) {
                     if (results[i].isFinal) {
                         recog_text = results[i][0].transcript;
+                        query = TRANS_URL + '?text=' + recog_text + '&source=' + trans_sourcelang + '&target=' + trans_destlang;
+                        request.open('GET', query, true);
+
+                        request.onreadystatechange = function () {
+                            if (request.readyState === 4 && request.status === 200) {
+                                // document.getElementById('speech_text-imb').innerHTML = recog_text;
+                                // document.getElementById('speech_text-bg').innerHTML = recog_text;
+                                // document.getElementById('speech_text-fg').innerHTML = recog_text;
+                                document.getElementById('trans_text-imb').innerHTML = request.responseText;
+                                document.getElementById('trans_text-bg').innerHTML = request.responseText;
+                                document.getElementById('trans_text-fg').innerHTML = request.responseText;
+                            }
+                            vr_function();
+                        }
+                        request.send(null);
 
                         // document.getElementById('speech_text-imb').innerHTML = recog_text;
                         // document.getElementById('speech_text-bg').innerHTML = recog_text;
                         // document.getElementById('speech_text-fg').innerHTML = recog_text;
 
-                        if (gs_key != null) {
-                            query = TRANS_URL + '?text=' + recog_text + '&source=' + trans_sourcelang + '&target=' + trans_destlang;
-                            request.open('GET', query, true);
-
-                            request.onreadystatechange = function () {
-                                if (request.readyState === 4 && request.status === 200) {
-                                    // document.getElementById('speech_text-imb').innerHTML = recog_text;
-                                    // document.getElementById('speech_text-bg').innerHTML = recog_text;
-                                    // document.getElementById('speech_text-fg').innerHTML = recog_text;
-                                    document.getElementById('trans_text-imb').innerHTML = request.responseText;
-                                    document.getElementById('trans_text-bg').innerHTML = request.responseText;
-                                    document.getElementById('trans_text-fg').innerHTML = request.responseText;
-                                }
-                                vr_function();
-                            }
-                            request.send(null);
-                        } else {
-                            document.getElementById('speech_text-imb').innerHTML = recog_text;
-                            document.getElementById('speech_text-bg').innerHTML = recog_text;
-                            document.getElementById('speech_text-fg').innerHTML = recog_text;
-                            vr_function();
-                        }
-                    }
-                    else {
+                        // if (gs_key != null) {
+                        // } else {
+                        //     document.getElementById('speech_text-imb').innerHTML = recog_text;
+                        //     document.getElementById('speech_text-bg').innerHTML = recog_text;
+                        //     document.getElementById('speech_text-fg').innerHTML = recog_text;
+                        //     vr_function();
+                        // }
+                    } else {
                         document.getElementById('speech_text-imb').innerHTML = "<< " + results[i][0].transcript + " >>";
                         document.getElementById('speech_text-bg').innerHTML = "<< " + results[i][0].transcript + " >>";
                         document.getElementById('speech_text-fg').innerHTML = "<< " + results[i][0].transcript + " >>";
