@@ -64,14 +64,19 @@ function App() {
 
     return (
         <div className={'app-container'}>
-            <button
-                className={`app-button ${shouldListen ? 'app-button-red' : 'app-button-green'}`}
-                onClick={onClick}
-            >
-                {shouldListen ? 'Stop listening' : 'Start listening'}
-            </button>
-            <p className={'app-transcript'}>{lastTranscript}</p>
-            <p className={'app-translation'}>{lastTranslation}</p>
+            <div className={'app-container-main'}>
+                <button
+                    className={`app-button ${shouldListen ? 'app-button-red' : 'app-button-green'}`}
+                    onClick={onClick}
+                >
+                    {shouldListen ? 'Stop listening' : 'Start listening'}
+                </button>
+                <p className={'app-transcript'}>{lastTranscript}</p>
+                <p className={'app-translation'}>{lastTranslation}</p>
+            </div>
+            <div className={'app-container-footer'}>
+                <p className={'app-signature'}>By Shacaa</p>
+            </div>
         </div>
     );
 }

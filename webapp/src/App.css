@@ -1,11 +1,30 @@
+/* ---- CONTAINERS ----*/
+
 .app-container {
-	margin-top: 5vh;
-	display: flex;
 	width: 100%;
-	align-items: center;
+	height: 100vh;
+	display: flex;
 	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
 	font-size: 20px;
 }
+
+.app-container-main {
+	width: 100%;
+	padding-top: 5vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.app-container-footer {
+	width: 100%;
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+/* ---- BUTTON ----*/
 
 .app-button {
 	width: 20%;
@@ -38,10 +57,16 @@
 	background-color: rgba(154, 30, 30, 0.47);
 }
 
+/* ---- TEXT ----*/
+
 .app-transcript {
 	margin: 10px;
 }
 
 .app-translation {
+	margin: 10px;
+}
+
+.app-signature {
 	margin: 10px;
 }
