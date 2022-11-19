@@ -6,10 +6,7 @@
   "scripts": {
     "build": "npx tsc",
     "start": "node dist/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "httpserver": "http-server -p 8080",
-    "server": "node dist/server.js",
-    "open-page": "start http://localhost:8080/live-translator/translate?recog=es&trans=en&bgcolor=lightgreen&size=25&weight=900&color=white&st_color=block&st_width=2&v_align=bottom"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Shacaa",
   "license": "ISC",
@@ -17,7 +14,6 @@
     "axios": "^1.1.3",
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "http-server": "^14.1.1",
     "obs-websocket-js": "^5.0.2"
   },
   "devDependencies": {
