@@ -1,1 +1,47 @@
+.app-container {
+	margin-top: 5vh;
+	display: flex;
+	width: 100%;
+	align-items: center;
+	flex-direction: column;
+	font-size: 20px;
+}
 
+.app-button {
+	width: 20%;
+	border-radius: 3px;
+	padding: 10px 10px;
+	margin: 5px;
+	border: 0;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.app-button:hover {
+	cursor: pointer;
+}
+
+.app-button-green {
+	background-color: #12b13b;
+}
+
+.app-button-green:hover {
+	background-color: rgba(18, 177, 59, 0.33);
+}
+
+.app-button-red {
+	background-color: #9a1e1e;
+	color: white;
+}
+
+.app-button-red:hover {
+	background-color: rgba(154, 30, 30, 0.47);
+}
+
+.app-transcript {
+	margin: 10px;
+}
+
+.app-translation {
+	margin: 10px;
+}
