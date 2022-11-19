@@ -30,13 +30,20 @@ const sendOBSCaption = async (caption: string) => {
 /* ---- BACKEND SERVER ---- */
 
 const app = express();
-const port = 3000;
+const port = 8080;
 
 app.use(cors());
 
+const getProperSourceLang = (source: string) => {
+	if (source.startsWith('es')) {
+		return 'es';
+	}
+	return source;
+};
+
 app.get('/translate', async (req, res) => {
 	const {text, source, target} = req.query;
-	const url = `https://script.google.com/macros/s/${process.env.GS_KEY}/exec?text=${text}&source=${source}&target=${target}`;
+	const url = `https://script.google.com/macros/s/${process.env.GS_KEY}/exec?text=${text}&source=${getProperSourceLang(source)}&target=${target}`;
 	logDebug(`requesting GScript url: ${url}`);
 	try {
 		const response = await axios.get(url);
