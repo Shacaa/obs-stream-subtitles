@@ -1,0 +1,72 @@
+/* ---- CONTAINERS ----*/
+
+.app-container {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 20px;
+}
+
+.app-container-main {
+	width: 100%;
+	padding-top: 5vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.app-container-footer {
+	width: 100%;
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+/* ---- BUTTON ----*/
+
+.app-button {
+	width: 20%;
+	border-radius: 3px;
+	padding: 10px 10px;
+	margin: 5px;
+	border: 0;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.app-button:hover {
+	cursor: pointer;
+}
+
+.app-button-green {
+	background-color: #12b13b;
+}
+
+.app-button-green:hover {
+	background-color: rgba(18, 177, 59, 0.33);
+}
+
+.app-button-red {
+	background-color: #9a1e1e;
+	color: white;
+}
+
+.app-button-red:hover {
+	background-color: rgba(154, 30, 30, 0.47);
+}
+
+/* ---- TEXT ----*/
+
+.app-transcript {
+	margin: 10px;
+}
+
+.app-translation {
+	margin: 10px;
+}
+
+.app-signature {
+	margin: 10px;
+}
