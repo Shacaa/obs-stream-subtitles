@@ -24,7 +24,13 @@
 	flex-direction: row-reverse;
 }
 
-/* ---- BUTTON ----*/
+/* ---- BUTTONS ----*/
+
+.app-buttons-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
 
 .app-button {
 	width: 20%;
@@ -68,5 +74,6 @@
 }
 
 .app-signature {
+	font-size: 30px;
 	margin: 10px;
 }
