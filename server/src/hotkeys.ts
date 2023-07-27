@@ -12,10 +12,10 @@ interface HotkeyConfig {
 	duration?: number;
 }
 
-const getHotkeyList = async (obs) => {
+const getHotkeyList = async (obs): Promise<string[]> => {
 	logDebug('OBS GetHotkeyList');
 	const response = await obs.call('GetHotkeyList');
-	response.hotkeys.forEach((hk) => logDebug(hk));
+	return response.hotkeys;
 }
 
 const triggerHotkeyByName = async (obs, hotkeyName: string) => {
@@ -40,7 +40,7 @@ const triggerHotkeyByKeySequence = async (obs, hotkeySequence: object) => {
 
 // TODO replace setTimeout with better solution
 const hotkeyRunner = (obs, hotkeyConfig: HotkeyConfig) => {
-	if (hotkeyConfig.end_hotkey_name && hotkeyConfig.repeat < hotkeyConfig.duration) {
+	if ((hotkeyConfig.end_hotkey_name || hotkeyConfig.end_hotkey_sequence) && hotkeyConfig.repeat < hotkeyConfig.duration) {
 		logWarn(`Invalid hotkey config: ${JSON.stringify(hotkeyConfig)}`);
 		return;
 	}
