@@ -1,0 +1,18 @@
+[
+	{
+		"start_hotkey_name": "libobs.show_scene_item.ImageTest",
+		"end_hotkey_name": "libobs.hide_scene_item.ImageTest",
+		"repeat": 600000,
+		"duration": 15000
+	},
+	{
+		"start_hotkey_name": "libobs.show_scene_item.ImageTest",
+		"repeat": 600000
+	},
+	{
+		"start_hotkey_sequence": { "keyId": "OBS_KEY_1", "keyModifiers": { "alt": true } },
+		"end_hotkey_sequence": { "keyId": "OBS_KEY_1", "keyModifiers": { "alt": true } },
+		"repeat": 10000,
+		"duration": 3000
+	}
+]

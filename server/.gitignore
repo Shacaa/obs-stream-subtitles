@@ -4,6 +4,7 @@ dist
 
 # Local
 .env
+hotkeys.json
 
 # IDE
 .idea

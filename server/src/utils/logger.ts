@@ -14,4 +14,8 @@ const logDebug = (value: string) => {
 	}
 }
 
-export {logInfo, logError, logDebug};
+const logWarn = (value: string) => {
+	console.warn(value);
+};
+
+export {logInfo, logError, logDebug, logWarn};
