@@ -3,6 +3,7 @@ import cors from 'cors';
 import axios from 'axios';
 import OBSWebSocket from 'obs-websocket-js';
 import {logDebug, logError, logInfo} from './utils/logger';
+import {getHotkeyList, hotkeysRunner} from "./hotkeys";
 
 const dotenv = require('dotenv').config();
 
@@ -12,7 +13,13 @@ const obs = new OBSWebSocket();
 
 if (process.env.USE_OBS === 'true') {
 	obs.connect()
-		.then(() => logInfo('Connected to OBS websocket'))
+		.then(() => {
+			logInfo('Connected to OBS websocket')
+			if (process.env.SHOW_HOTKEYS_NAME) {
+				getHotkeyList(obs).then(hks => hks.forEach(hk => logInfo(hk)));
+			}
+			hotkeysRunner(obs);
+		})
 		.catch(err => logError(err));
 }
 
