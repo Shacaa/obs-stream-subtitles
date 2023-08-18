@@ -15,7 +15,7 @@ if (process.env.USE_OBS === 'true') {
 	obs.connect()
 		.then(() => {
 			logInfo('Connected to OBS websocket')
-			if (process.env.SHOW_HOTKEYS_NAME) {
+			if (process.env.SHOW_HOTKEYS_NAME === 'true') {
 				getHotkeyList(obs).then(hks => hks.forEach(hk => logInfo(hk)));
 			}
 			hotkeysRunner(obs);
@@ -30,7 +30,7 @@ const sendOBSCaption = async (caption: string) => {
 			{ captionText: caption }
 		);
 	} catch (err) {
-		logError(`error sending OBS caption: ${err.message}`);
+		logError(`error sending OBS caption: ${err}`);
 	}
 };
 
